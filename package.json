@@ -15,7 +15,8 @@
   "scripts": {
     "lint": "eslint lib examples",
     "pretest": "npm run lint",
-    "prepublish": "babel ./src --out-dir ./lib --source-maps --ignore __tests__ --presets es2015,react --plugins babel-plugin-add-module-exports && browserify ./lib/Autocomplete.js -o ./build/Autocomplete.js --transform browserify-global-shim --standalone ReactPlace && uglifyjs ./build/Autocomplete.js --compress --mangle --output ./build/Autocomplete.min.js --source-map ./build/Autocomplete.min.js.map",
+    "prepublish": "babel ./src --out-dir ./lib --source-maps --ignore __tests__ && browserify ./lib/Autocomplete.js -o ./build/Autocomplete.js --transform browserify-global-shim --standalone ReactPlace && uglifyjs ./build/Autocomplete.js --compress --mangle --output ./build/Autocomplete.min.js --source-map ./build/Autocomplete.min.js.map",
+    "examples": "babel ./examples --out-file bundle.js --source-maps && browserify ./lib/Autocomplete.js -o ./build/Autocomplete.js --transform browserify-global-shim --standalone ReactPlace",
     "test": "jest",
     "coverage": "jest --coverage",
     "start": "rackt server"
